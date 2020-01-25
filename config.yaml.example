@@ -1,0 +1,34 @@
+# Config File for scanNewHosts
+scan:
+  # networks to scan
+  networks:
+    - 192.168.1.0/24
+    - 192.168.2.0/24
+
+  # which hosts to ignore as new, if found
+  ignore:
+    - 192.168.1.50
+
+  # additional nmap parameters for fine tuning
+  nmap_para: "--open -sS"
+
+# contact settings
+notify:
+  email:
+    # smtp server
+    server: 192.168.1.25
+    port: 25
+    from: "networkdiscovery@yourdomain.tld"
+    to:
+      - rcpt@mail.tld
+
+tls:
+  # root CA file to verify connection to zabbix API
+  verify-ca-cert-path: /etc/ssl/certs/yourCA.crt
+
+# connection to zabbix API
+zabbix:
+  url: "https://192.168.1.1/zabbix"
+  user: "zabbix"
+  pw: "password"
+
